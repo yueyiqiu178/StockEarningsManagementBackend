@@ -4,26 +4,30 @@ plugins {
 	id 'java'
 }
 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
 group = 'maxqiu.stock'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	compile('org.springframework.boot:spring-boot-starter')
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	compile("org.springframework.boot:spring-boot-starter-web")
+	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1")
 	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
-	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.0'
-  	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.0'
 }
 
 test {
 	useJUnitPlatform()
 }
+
